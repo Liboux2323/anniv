@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Joyeux Anniversaire Medouche !!!!!!!</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+      font-family: 'Comic Sans MS', cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: auto;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #gift {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    #gift:hover {
+      transform: scale(1.05);
+    }
+
+    #message {
+      display: none;
+      font-size: 2em;
+      color: #d63447;
+      margin-top: 20px;
+    }
+
+    #revealButton {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #d63447;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #revealButton:hover {
+      background-color: #b42b3c;
+    }
+
+    #loveMessage {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      max-width: 600px;
+      background-color: #fff8f0;
+      border-radius: 15px;
+      color: #333;
+      font-size: 1.1em;
+      line-height: 1.6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      animation: fall 3s linear infinite;
+      z-index: 999;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <img id="gift" src="cadeau_ferme.png" alt="Cadeau">
+    <div id="message">🎉 Joyeux Anniversaire Medouche !!!!!!! 🎉</div>
+    <button id="revealButton">Lire le message ❤️</button>
+    <div id="loveMessage">
+      Ce message est pour l'amour de ma vie. Depuis que tu es entrée dans ma vie, je ne pense qu’à toi. Je ne peux plus m’endormir sans te voir à côté de moi chaque soir. Tu ne peux pas imaginer à quel point ma vie a changé depuis que je t’ai rencontrée. Grâce à toi, j’ai été plus heureux que je ne l’ai jamais été. Comme tu l’as dit, mon amour pour toi est tellement fort qu’il est difficile à décrire.<br><br>
+      Mon amour, je sais que je ne suis pas parfait, mais je fais tout pour m’améliorer chaque jour et être l’homme que tu as toujours rêvé de rencontrer. Et quand je parle de qualités, je les vois toutes en toi. Tu es une personne unique, et j’aime même ce que tu vois comme des défauts.<br><br>
+      Meda, je suis surement trop chiant à vouloir toujours travailler ou dormir, mais je le fais pour nous, fin sauf dormir je le fais pour moi hihi. J’imagine pas à quel point ça doit être dur de passer toutes tes journées seule, en sachant que même l’hôpital prend plus de nouvelles que tes potes proches. Je donne mon maximum pour passer le plus de temps avec toi, mais je voudrais rester indéfiniment avec toi sans aller travailler.<br><br>
+      J’attends tellement le moment où l’on ira en vacances ensemble avec notre petit kiki. J’te jure que j’arrive pas à l’imaginer tellement que ce sera beau. Juste le fait d’y penser, il y a de la poussière. Je me réjouis trop.<br><br>
+      Mon cœur, je t’aime tellement, je donnerais tout pour toi, tu es ce que j’ai de plus précieux. Je t’aime, et je veux t’épouser.<br><br>
+      Je suis tellement heureux de pouvoir avoir un enfant avec toi. Je n’ai pas encore complètement réalisé la chance que j’ai. Mon rêve, c’est que notre fils devienne aussi fort et incroyable que sa maman. J’ai hâte qu’on le voie grandir ensemble. Et tout ça pour te dire que je ne te quitterai jamais. Je t’aime, mon fantôme. ❤️
+    </div>
+  </div>
+
+  <script>
+    const gift = document.getElementById('gift');
+    const message = document.getElementById('message');
+    const revealButton = document.getElementById('revealButton');
+    const loveMessage = document.getElementById('loveMessage');
+
+    gift.addEventListener('click', () => {
+      gift.src = 'cadeau_ouvert.png';
+      message.style.display = 'block';
+      revealButton.style.display = 'inline-block';
+      launchConfetti();
+    });
+
+    revealButton.addEventListener('click', () => {
+      loveMessage.style.display = 'block';
+      revealButton.style.display = 'none';
+    });
+
+    function launchConfetti() {
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = randomColor();
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+      }
+    }
+
+    function randomColor() {
+      const colors = ['#f94144', '#f3722c', '#f9c74f', '#43aa8b', '#577590'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+
+</body>
+</html>
